@@ -13,11 +13,12 @@
 //==============================================================================
 /**
 */
-class TutorialProjectAudioProcessor  : public juce::AudioProcessor
+class TutorialProjectAudioProcessor  : public juce::AudioProcessor 
 {
 public:
     //==============================================================================
     float noteOnVel;
+    
     TutorialProjectAudioProcessor();
     ~TutorialProjectAudioProcessor() override;
 

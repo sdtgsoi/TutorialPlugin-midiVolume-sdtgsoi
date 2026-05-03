@@ -14,17 +14,19 @@
 //==============================================================================
 /**
 */
-class TutorialProjectAudioProcessorEditor  : public juce::AudioProcessorEditor
+class TutorialProjectAudioProcessorEditor  : public juce::AudioProcessorEditor,
+                                             private juce::Slider::Listener
 {
 public:
     TutorialProjectAudioProcessorEditor (TutorialProjectAudioProcessor&);
     ~TutorialProjectAudioProcessorEditor() override;
-
+       
     //==============================================================================
     void paint (juce::Graphics&) override;
     void resized() override;
 
 private:
+    void sliderValueChanged (juce::Slider* slider) override;
     // This reference is provided as a quick way for your editor to
     // access the processor object that created it.
     TutorialProjectAudioProcessor& audioProcessor;

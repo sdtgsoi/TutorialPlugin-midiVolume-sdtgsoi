@@ -13,6 +13,7 @@
 TutorialProjectAudioProcessorEditor::TutorialProjectAudioProcessorEditor (TutorialProjectAudioProcessor& p)
     : AudioProcessorEditor (&p), audioProcessor (p)
 {
+
     // This is where our plugin’s editor size is set.
     setSize (200, 200);
 
@@ -30,6 +31,13 @@ TutorialProjectAudioProcessorEditor::TutorialProjectAudioProcessorEditor (Tutori
     // Make sure that before the constructor has finished, you've set the
     // editor's size to whatever you need it to be.
     setSize (400, 300);
+
+    midiVolume.addListener(this);
+}
+
+void TutorialProjectAudioProcessorEditor::sliderValueChanged (juce::Slider* slider)
+{
+    audioProcessor.noteOnVel = midiVolume.getValue();
 }
 
 TutorialProjectAudioProcessorEditor::~TutorialProjectAudioProcessorEditor()
